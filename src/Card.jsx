@@ -1,5 +1,4 @@
 import React from "react";
-import web from "./images/portfolio1.jpg"
 import { NavLink } from "react-router-dom";
 
 

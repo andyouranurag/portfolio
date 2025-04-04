@@ -5,21 +5,55 @@ body, html {
   height: 100%;
   display: flex;
   flex-direction: column;
+  overflow-x: hidden;
 }
 
 /* Container to hold all content */
 .app-container {
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* Full viewport height */
+  min-height: 100vh;
 }
 
 /* Main content area should expand to push footer down */
 .content {
-  flex: 1; /* Takes available space */
+  flex: 1;
 }
 
-/* Footer styling */
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: white;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+/* Navbar brand */
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+/* Navbar menu button */
+.navbar-toggler {
+  border: none;
+  background: transparent;
+}
+
+/* Responsive Navbar */
+@media (max-width: 768px) {
+  .navbar-brand {
+    font-size: 1.2rem;
+  }
+}
+
+/* Footer */
 footer {
   background-color: #f8f9fa;
   text-align: center;
@@ -27,20 +61,15 @@ footer {
   width: 100%;
 }
 
-.App {
-  flex: 1;
-  text-align: center;
-}
-
-
 /* Fullscreen Hero Section */
 #header {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   text-align: center;
-  height: 100vh; /* Full viewport height */
-  background: linear-gradient(135deg, #3498db, #8e44ad); /* Gradient Background */
+  height: 100vh;
+  background: linear-gradient(135deg, #3498db, #8e44ad);
   color: white;
   padding: 20px;
   position: relative;
@@ -49,12 +78,12 @@ footer {
 
 /* Animated Heading */
 #header h1 {
-  font-size: 2rem;
+  font-size: 3rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: 3px;
   opacity: 0;
-  animation: slideInLeft 1.5s ease-in-out forwards;
+  animation: fadeInSlide 1.5s ease-in-out forwards;
 }
 
 /* Animated Description */
@@ -66,68 +95,34 @@ footer {
   line-height: 1.5;
   color: rgba(255, 255, 255, 0.9);
   opacity: 0;
-  animation: slideInRight 1.5s ease-in-out 0.3s forwards;
+  animation: fadeInSlide 1.5s ease-in-out 0.5s forwards;
 }
 
-/* Keyframes for Sliding In */
-@keyframes slideInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes slideInRight {
-  from {
-    opacity: 0;
-    transform: translateX(50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-/* Fancy Button */
+/* Call-to-Action Button */
 #header .btn-primary {
   font-size: 1.2rem;
   padding: 12px 30px;
   border-radius: 50px;
-  background: #ffcc00; /* Bright Yellow Button */
+  background: #ffcc00;
   color: #333;
   font-weight: bold;
   border: none;
   transition: transform 0.3s ease-in-out, background 0.3s;
   opacity: 0;
-  animation: fadeIn 1.5s ease-in-out 1s forwards;
+  animation: fadeInSlide 1.5s ease-in-out 1s forwards;
 }
 
 #header .btn-primary:hover {
   background: white;
   color: #3498db;
-  transform: scale(1.1); /* Button Hover Effect */
+  transform: scale(1.1);
 }
 
 /* Keyframe Animations */
-@keyframes fadeIn {
+@keyframes fadeInSlide {
   from {
     opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(50px);
+    transform: translateY(-30px);
   }
   to {
     opacity: 1;
@@ -175,24 +170,23 @@ footer {
   transition: all 0.3s ease-in-out;
 }
 
-.social-links a i {
-  margin-right: 10px;
-}
-
 .social-links a:hover {
   color: #007bff;
   transform: scale(1.1);
 }
 
-/* Social Media Heading */
-.social-heading {
-  font-size: 1.8rem;
-  font-weight: bold;
-  margin-bottom: 15px;
-}
-
-/* Ensure Name & Description are Visible */
-#header h1,
-#header h2 {
-  opacity: 1 !important; /* Force visibility */
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  #header h1 {
+    font-size: 2.5rem;
+  }
+  
+  #header h2 {
+    font-size: 1.5rem;
+  }
+  
+  #header .btn-primary {
+    font-size: 1rem;
+    padding: 10px 20px;
+  }
 }

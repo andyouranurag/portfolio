@@ -3,7 +3,7 @@ import Card from "./Card";
 import Sdata from "./Sdata";
 
 
-const Service = () => {
+const skills = () => {
   return (
     <>
       <div className="my-5">
@@ -33,4 +33,4 @@ const Service = () => {
   );
 };
 
-export default Service;
+export default skills;

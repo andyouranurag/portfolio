@@ -1,53 +1,25 @@
 import React from "react";
-import {NavLink} from "react-router-dom";
+import { Navbar, Nav } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
-
-const Navbar = () => {
-    return (
-        <>
-        <div className="container-fluid nav_bg">
-            <div className="row">
-                <div className="col-10 mx-auto">
-
-           
-            <nav className="navbar navbar-expand-lg navbar-light bg-light" >
-  <div className="container-fluid">
-    <NavLink  className="navbar-brand" to="/">PortFolio Website</NavLink>
-    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" 
-    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" 
-    aria-expanded="false" aria-label="Toggle navigation">
-      <span className="navbar-toggler-icon"></span>
-    </button>
-    <div className="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul className="navbar-nav ml-auto mb-2 mb-lg-0">
-        <li className="nav-item">
-          <NavLink activeClassName="menu_active" exact className="nav-link active" aria-current="page" to="/">Home</NavLink>
-        </li>
-        <li className="nav-item">
-          <NavLink activeClassName="menu_active" className="nav-link" to="/service">Skills</NavLink>
-        </li>
-        <li className="nav-item">
-          <NavLink activeClassName="menu_active" className = "nav-link" to="/resume">Resume</NavLink>
-        </li>
-        <li className="nav-item">
-          <NavLink activeClassName="menu_active" className="nav-link" to="/about">About</NavLink>
-        </li>
-        <li className="nav-item">
-          <NavLink activeClassName="menu_active" className="nav-link" to="/contact">Contact</NavLink>
-        </li>
-
-      </ul>
-      
-    </div>
-  </div>
-</nav>
-     </div>
-            </div>
-        </div>
-
-
-        </>
-    );
+const MyNavbar = () => {
+  return (
+    <Navbar expand="lg" className="navbar">
+      <div className="container">
+        <Navbar.Brand as={Link} to="/">PortFolio Website</Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="ml-auto">
+            <Nav.Link as={Link} to="/">Home</Nav.Link>
+            <Nav.Link as={Link} to="/skills">Skills</Nav.Link>
+            <Nav.Link as={Link} to="/resume">Resume</Nav.Link>
+            <Nav.Link as={Link} to="/about">About</Nav.Link>
+            <Nav.Link as={Link} to="/contact">Contact</Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
+      </div>
+    </Navbar>
+  );
 };
 
-export default Navbar;
+export default MyNavbar;

@@ -1,6 +1,6 @@
 import React from "react";
 import web from "../src/images/homepage2.png";
-import { NavLink } from "react-router-dom";
+
 import Common from "./common";
 import "animate.css";
 

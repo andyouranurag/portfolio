@@ -6,6 +6,7 @@ body, html {
   display: flex;
   flex-direction: column;
   overflow-x: hidden;
+  padding-top: 80px; /* Adjust based on navbar height */
 }
 
 /* Container to hold all content */
@@ -31,7 +32,10 @@ body, html {
   top: 0;
   width: 100%;
   z-index: 1000;
+  background: white; /* Or any background color */
 }
+
+
 
 /* Navbar brand */
 .navbar-brand {
@@ -52,6 +56,18 @@ body, html {
     font-size: 1.2rem;
   }
 }
+
+/* Ensure space below the fixed navbar */
+.skills-container {
+  padding-top: 60px;  /* Adjust based on navbar height */
+}
+
+
+/* If using Bootstrap, add margin-top */
+.skills-title {
+  margin-top: 80px;
+}
+
 
 /* Footer */
 footer {
@@ -74,7 +90,16 @@ footer {
   padding: 20px;
   position: relative;
   overflow: hidden;
+  padding-top: 80px; /* Adjust based on navbar height */
 }
+
+/* Ensure mobile responsiveness */
+@media (max-width: 768px) {
+  #header {
+      padding-top: 100px; /* More space for smaller screens */
+  }
+}
+
 
 /* Animated Heading */
 #header h1 {
@@ -189,4 +214,105 @@ footer {
     font-size: 1rem;
     padding: 10px 20px;
   }
+}
+
+
+/* Match Contact Page Background to Home and About */
+.contact-container {
+  background: linear-gradient(135deg, #3498db, #8e44ad); /* Same gradient as Home */
+  color: white;
+  padding: 100px 0;
+  text-align: center;
+  animation: fadeIn 1.5s ease-in-out;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Contact Info Box Styling */
+.contact-info {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+  text-align: left;
+  max-width: 500px;
+  margin: auto;
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(-20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+/* Mobile Responsive Fix */
+@media (max-width: 768px) {
+  .contact-container {
+      padding-top: 120px;
+  }
+}
+
+/*skills */
+
+.skills-container {
+  padding-top: 80px; /* Fix navbar overlap */
+  text-align: center;
+}
+
+.skill-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.skill-img {
+  width: 100%;  /* Ensure it fills the container */
+  height: 150px; /* Set a fixed height */
+  object-fit: cover; /* Crop to fit the card properly */
+  border-radius: 10px; /* Rounded corners */
+}
+
+/* Skill Card Styling */
+.skill-card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 20px;
+  text-align: center;
+}
+
+.skill-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Image Styling */
+.skill-img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
+}
+
+/* Always Show Description */
+.card-text {
+  font-size: 14px;
+  color: #555;
+  margin-top: 10px;
 }

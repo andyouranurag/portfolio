@@ -1,36 +1,29 @@
 import React from "react";
-import Card from "./Card";
+import Card from "react-bootstrap/Card"; // Bootstrap Card Component
 import Sdata from "./Sdata";
+import "./App.css"; // Import CSS for styling
 
-
-const skills = () => {
+const Skills = () => {
   return (
-    <>
-      <div className="my-5">
-        <h1 className="text-center"> My Skills </h1>
-        </div>
-        <div className="container-fluid mb-5">
-          <div className="row">
-            <div className="col-10 mx-auto">
-              <div className="row gy-4">
-              {
-                Sdata.map((val, ind) => {
-                  return <Card 
-                    key = {ind}
-                    imgsrc = {val.imgsrc}
-                    title = {val.title}
-                  />
-                })
-              }
-                
-            </div>
-          </div>
-        </div>
+    <div className="container-fluid skills-container py-5">
+      <div className="text-center my-5">
+        <h1 className="skills-title"> My Skills </h1>
       </div>
-      
-
-    </>
+      <div className="row justify-content-center">
+        {Sdata.map((val, ind) => (
+          <div className="col-md-4 col-sm-6 mb-4" key={ind}>
+            <Card className="skill-card">
+              <Card.Img variant="top" src={val.imgsrc} className="skill-img" />
+              <Card.Body>
+                <Card.Title>{val.title}</Card.Title>
+                <Card.Text>{val.description}</Card.Text>
+              </Card.Body>
+            </Card>
+          </div>
+        ))}
+      </div>
+    </div>
   );
 };
 
-export default skills;
+export default Skills;

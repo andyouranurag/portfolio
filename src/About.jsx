@@ -1,70 +1,60 @@
 import React from "react";
-import web from "../src/images/homepage2.png";
-
-import Common from "./common";
-import "animate.css";
+// import  "animate.css";
 
 const About = () => {
   return (
     <>
-      <div className="container about-section animate__animated animate__fadeIn">
-        <div className="row align-items-center">
-          {/* Left Section - About Details */}
-          <div className="col-md-6 text-center text-md-start">
-            <h2 className="about-heading animate__animated animate__slideInLeft">
-              About Me
-            </h2>
-            <p className="about-para animate__animated animate__slideInLeft animate__delay-1s">
-              I'm <b>Anurag Dubey</b>, a passionate Full Stack Developer currently pursuing 
-              TYBSc Data Science from <b>SIES College</b>. I have a strong foundation in 
-              <b> HTML, CSS, JavaScript, React, Node.js, and MongoDB</b>. I'm always eager 
-              to learn and grow as a developer!
-            </p>
-          </div>
+      <div id="about-header" className="about-section animate__animated animate__fadeIn py-5">
+        <div className="container">
+          <div className="row align-items-center">
+            {/* Left Section - About Details */}
+            <div className="col-md-12 text-center text-md-start">
+              <h2 className="about-heading animate__animated animate__slideInLeft">
+                <span className="highlight-heading">About Me</span>
+              </h2>
+              <p className="about-para animate__animated animate__slideInLeft animate__delay-1s" >
+                I'm <span className="highlight-name">Anurag Dubey</span>, a proactive and goal-oriented  <span className="highlight-role">Full Stack Developer</span> 
+                Appearing Bsc Data Science at <span className="highlight-college">SIES College of Arts, Science and Commerce</span>. With expertise in 
+                <span className="highlight-skills"> HTML, CSS, JavaScript, React, Node.js, and MongoDB</span>, I have built and deployed multiple 
+                web applications, including <span className="highlight-projects">Dzenith and Utkarsha</span>. A natural leader in public relations and hospitality, 
+                I excel at multi-tasking, problem-solving, and adapting to new challenges. Passionate about continuous learning, 
+                I aim to leverage data-driven insights and cutting-edge technologies to create impactful solutions.
+              </p>
 
-          {/* Right Section - Social Media Links */}
-          <div className="col-md-6 text-center animate__animated animate__slideInRight">
-            <h3 className="social-heading">Connect with me</h3>
-            <ul className="social-links">
-              <li>
-                <a
-                  href="https://www.linkedin.com/in/anurag-dubey-6a57a7279"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <i className="fab fa-linkedin fa-2x"></i> <span>LinkedIn</span>
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://www.instagram.com/andyouranurag"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <i className="fab fa-instagram fa-2x"></i> <span>Instagram</span>
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://github.com/andyouranurag"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <i className="fab fa-github fa-2x"></i> <span>GitHub</span>
-                </a>
-              </li>
-            </ul>
+              {/* Education Section */}
+              <h3 className="mt-5 animate__animated animate__fadeInUp">
+                <span className="highlight-heading">Education</span>
+              </h3>
+              <ul className="education-list animate__animated animate__fadeInUp animate__delay-1s">
+                <li>
+                  <b className="highlight-degree">BSc in Data Science</b> – <span className="highlight-college">SIES College of Arts, Science and Commerce, Mumbai</span><br />
+                  <span>2022 - 2025</span>
+                </li>
+                <li>
+                  <b className="highlight-degree">HSC (Science)</b> – <span className="highlight-college">Ramniranjan Jhunjhunwala College</span><br />
+                  <span>2020 - 2022</span>
+                </li>
+                <li>
+                  <b className="highlight-degree">SSC</b> – <span className="highlight-college">Dr. Datta Samant Madhyamik Vidyalaya</span><br />
+                  <span>2008 - 2020</span>
+                </li>
+              </ul>
+
+              {/* Certification Section */}
+              <h3 className="mt-5 animate__animated animate__fadeInUp">
+                <span className="highlight-heading">Certifications</span>
+              </h3>
+              <ul className="education-list animate__animated animate__fadeInUp animate__delay-1s">
+                <li>
+                  <b className="highlight-degree">Cloud Computing Certification</b> – From IIT Kharagpur through NPTEL<br />
+                  <span>Jul-Oct 2024</span> {/* Update year if needed */}
+                </li>
+              </ul>
+
+            </div>
           </div>
         </div>
-      </div>
-
-      {/* Common Section with Image */}
-      <Common
-        name="Welcome to About Page"
-        imgsrc={web}
-        visit="/contact"
-        btname="Contact Now"
-      />
+      </div>    
     </>
   );
 };

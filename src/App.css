@@ -1,4 +1,7 @@
-/* Ensure full height for body and html */
+/* ============================= */
+/* GLOBAL STYLES                 */
+/* ============================= */
+
 body, html {
   margin: 0;
   padding: 0;
@@ -9,75 +12,71 @@ body, html {
   padding-top: 80px; /* Adjust based on navbar height */
 }
 
-/* Container to hold all content */
 .app-container {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 
-/* Main content area should expand to push footer down */
 .content {
   flex: 1;
 }
 
-/* Navbar */
+/* ============================= */
+/* NAVBAR                        */
+/* ============================= */
+
 .navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-  background-color: white;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1000;
-  background: white; /* Or any background color */
+  transition: all 0.3s ease;
+  background: linear-gradient(135deg, #3498db, #8e44ad);
+  box-shadow: none;
 }
 
+.navbar-scrolled {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+}
 
-
-/* Navbar brand */
 .navbar-brand {
-  font-size: 1.5rem;
   font-weight: bold;
-  white-space: nowrap;
+  font-size: 1.3rem;
+  color: #ffffff !important;
+  display: flex;
+  align-items: center;
 }
 
-/* Navbar menu button */
-.navbar-toggler {
-  border: none;
-  background: transparent;
+.navbar .nav-link {
+  font-weight: 500;
+  padding: 10px 15px;
+  color: rgba(255, 255, 255, 0.9) !important;
+  transition: color 0.3s ease;
 }
 
-/* Responsive Navbar */
-@media (max-width: 768px) {
-  .navbar-brand {
-    font-size: 1.2rem;
+.navbar .nav-link:hover {
+  color: #ffdd57 !important;
+}
+
+.navbar .active-link {
+  color: #ffcc00 !important;
+  font-weight: bold;
+  border-bottom: 2px solid #ffcc00;
+}
+
+
+/* ============================= */
+/* HEADER / HERO SECTION         */
+/* ============================= */
+
+@keyframes homeSlideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-/* Ensure space below the fixed navbar */
-.skills-container {
-  padding-top: 60px;  /* Adjust based on navbar height */
-}
-
-
-/* If using Bootstrap, add margin-top */
-.skills-title {
-  margin-top: 80px;
-}
-
-
-/* Footer */
-footer {
-  background-color: #f8f9fa;
-  text-align: center;
-  padding: 0.5rem 0;
-  width: 100%;
-}
-
-/* Fullscreen Hero Section */
 #header {
   display: flex;
   align-items: center;
@@ -87,31 +86,35 @@ footer {
   height: 100vh;
   background: linear-gradient(135deg, #3498db, #8e44ad);
   color: white;
-  padding: 20px;
   position: relative;
   overflow: hidden;
+  padding: 20px;
   padding-top: 80px; /* Adjust based on navbar height */
 }
 
-/* Ensure mobile responsiveness */
 @media (max-width: 768px) {
   #header {
-      padding-top: 100px; /* More space for smaller screens */
+    padding-top: 0px;
+  }
+  #header h1 {
+    font-size: 2.5rem;
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 500;
   }
 }
 
-
-/* Animated Heading */
 #header h1 {
   font-size: 3rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 3px;
-  opacity: 0;
-  animation: fadeInSlide 1.5s ease-in-out forwards;
+  color: #ffcc00;
+  animation: homeSlideDown 1.5s ease forwards;
 }
 
-/* Animated Description */
 #header h2 {
   font-size: 1.8rem;
   font-weight: 500;
@@ -119,11 +122,9 @@ footer {
   margin: 20px auto;
   line-height: 1.5;
   color: rgba(255, 255, 255, 0.9);
-  opacity: 0;
-  animation: fadeInSlide 1.5s ease-in-out 0.5s forwards;
+  animation: homeSlideDown 1.5s ease 0.5s forwards;
 }
 
-/* Call-to-Action Button */
 #header .btn-primary {
   font-size: 1.2rem;
   padding: 12px 30px;
@@ -133,8 +134,7 @@ footer {
   font-weight: bold;
   border: none;
   transition: transform 0.3s ease-in-out, background 0.3s;
-  opacity: 0;
-  animation: fadeInSlide 1.5s ease-in-out 1s forwards;
+  animation: homeSlideDown 1.5s ease-in-out 1s forwards;
 }
 
 #header .btn-primary:hover {
@@ -143,83 +143,248 @@ footer {
   transform: scale(1.1);
 }
 
-/* Keyframe Animations */
-@keyframes fadeInSlide {
-  from {
+/* ============================= */
+/* ABOUT SECTION                 */
+/* ============================= */
+
+@keyframes popIn {
+  0% {
     opacity: 0;
-    transform: translateY(-30px);
+    transform: scale(0.8);
   }
-  to {
+  60% {
+    transform: scale(1.1);
+  }
+  100% {
     opacity: 1;
-    transform: translateY(0);
+    transform: scale(1);
   }
 }
 
-/* About Section */
-.about-section {
-  padding: 80px 20px;
+@keyframes zoomSlideUp {
+  0% {
+    opacity: 0;
+    transform: scale(0.9) translateY(30px);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.02) translateY(5px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
 }
 
-/* Heading */
+.about-section {
+  background: linear-gradient(to right, #4e54c8, #8f94fb);
+  color: white !important;
+  padding: 80px 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
 .about-heading {
   font-size: 2.5rem;
   font-weight: bold;
-  color: #333;
+  color: #ffcc00;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  animation: popIn 1.3s ease-in-out both;
+  padding-top: 5%;
 }
 
-/* Paragraph */
 .about-para {
   font-size: 1.2rem;
-  line-height: 1.6;
-  color: #555;
-  max-width: 500px;
-  margin: auto;
+  line-height: 1.8;
+  color: white !important;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+  max-width: 750px;
+  margin: 20px auto 0;
+  opacity: 0;
+  animation: zoomSlideUp 1.5s ease-in-out forwards;
+  animation-delay: 0.8s;
 }
 
-/* Social Media Links */
-.social-links {
-  list-style: none;
+.highlight-name,
+.highlight-role,
+.highlight-skills,
+.highlight-projects,
+.highlight-college {
+  font-weight: bold;
+  color: #ffdd57;
+  transition: color 0.3s ease;
+}
+
+.highlight-name:hover,
+.highlight-role:hover,
+.highlight-skills:hover,
+.highlight-projects:hover,
+.highlight-college:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.education-list {
+  list-style-type: none;
   padding: 0;
   margin-top: 20px;
+  animation: slideInList 1s ease-in-out both;
+  animation-delay: 1.3s;
 }
 
-.social-links li {
-  display: inline-block;
-  margin: 10px;
+@keyframes slideInList {
+  0% {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
-.social-links a {
-  text-decoration: none;
-  color: #333;
-  font-size: 1.2rem;
-  transition: all 0.3s ease-in-out;
+.education-list li {
+  font-size: 1.1rem;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 10px;
+  backdrop-filter: blur(5px);
+  color: white;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.social-links a:hover {
-  color: #007bff;
-  transform: scale(1.1);
+.education-list li:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.25);
 }
 
-/* Responsive Adjustments */
+.highlight-heading {
+  color: #ffcc00;
+}
+
+.highlight-degree {
+  color: #fff;
+  font-weight: bold;
+}
+
+.highlight-college {
+  color: #ffdd57;
+}
+
 @media (max-width: 768px) {
-  #header h1 {
-    font-size: 2.5rem;
+  .about-heading {
+    font-size: 2rem;
   }
-  
-  #header h2 {
-    font-size: 1.5rem;
+  .about-para {
+    font-size: 1.1rem;
+    max-width: 90%;
   }
-  
-  #header .btn-primary {
+  .education-list li {
     font-size: 1rem;
-    padding: 10px 20px;
+    padding: 12px;
+  }
+}
+
+/* ============================= */
+/* SKILLS SECTION                */
+/* ============================= */
+
+@keyframes fadeInScale {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.skills-container {
+  background: linear-gradient(135deg, #3498db, #8e44ad);
+  color: white;
+  padding: 100px 20px;
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+.skills-heading {
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: #8e44ad;
+  animation: fadeInScale 1s ease-in-out;
+}
+
+.skill-card {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  color: white;
+}
+
+
+.skill-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+  border: 2px solid #3498db;
+}
+
+.skill-img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
+}
+
+
+/* ============================= */
+/* Resume              */
+/* ============================= */
+@media (max-width: 768px) {
+  .resume-container {
+    padding-top: 120px;
+  }
+
+  .resume-card {
+    height: auto;
+    min-height: 500px;
   }
 }
 
 
-/* Match Contact Page Background to Home and About */
+
+/* ============================= */
+/* CONTACT SECTION               */
+/* ============================= */
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) translateY(50px);
+  }
+  60% {
+    transform: scale(1.05) translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
 .contact-container {
-  background: linear-gradient(135deg, #3498db, #8e44ad); /* Same gradient as Home */
+  background: linear-gradient(135deg, #3498db, #8e44ad);
   color: white;
   padding: 100px 0;
   text-align: center;
@@ -229,8 +394,16 @@ footer {
   align-items: center;
   justify-content: center;
 }
+.text-center {
+  color:#ffcc00;
+}
+.contact-heading {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #fff;
+  animation: bounceIn 1.2s ease-in-out;
+}
 
-/* Contact Info Box Styling */
 .contact-info {
   background: rgba(255, 255, 255, 0.1);
   padding: 20px;
@@ -239,80 +412,115 @@ footer {
   text-align: left;
   max-width: 500px;
   margin: auto;
+  animation: bounceIn 1.5s ease-in-out 0.3s;
 }
 
-/* Fade-in Animation */
-@keyframes fadeIn {
-  from {
-      opacity: 0;
-      transform: translateY(-20px);
-  }
-  to {
-      opacity: 1;
-      transform: translateY(0);
-  }
+.contact-info h2{
+  color: #ffcc00;
 }
 
-/* Mobile Responsive Fix */
 @media (max-width: 768px) {
   .contact-container {
-      padding-top: 120px;
+    padding-top: 120px;
   }
 }
 
-/*skills */
+/* ============================= */
+/* FOOTER                        */
+/* ============================= */
 
-.skills-container {
-  padding-top: 80px; /* Fix navbar overlap */
+.custom-footer {
+  background: linear-gradient(135deg, #3498db, #8e44ad);
+  color: #fff;
   text-align: center;
-}
-
-.skill-card {
-  background: #fff;
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.skill-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
-}
-
-.skill-img {
-  width: 100%;  /* Ensure it fills the container */
-  height: 150px; /* Set a fixed height */
-  object-fit: cover; /* Crop to fit the card properly */
-  border-radius: 10px; /* Rounded corners */
-}
-
-/* Skill Card Styling */
-.skill-card {
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  padding: 20px;
-  text-align: center;
-}
-
-.skill-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
-}
-
-/* Image Styling */
-.skill-img {
+  padding: 1rem 0;
   width: 100%;
-  height: 150px;
-  object-fit: cover;
-  border-radius: 10px 10px 0 0;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
 }
 
-/* Always Show Description */
-.card-text {
-  font-size: 14px;
-  color: #555;
-  margin-top: 10px;
+.custom-footer p {
+  margin: 0;
 }
+
+.custom-footer a {
+  color: #ffdd57;
+  text-decoration: none;
+  margin-left: 5px;
+}
+
+.custom-footer a:hover {
+  text-decoration: underline;
+  color: #fff;
+}
+
+
+/* ============================= */
+/* SECTION HIGHLIGHT STYLES      */
+/* ============================= */
+
+.highlight-home {
+  color: #ffcc00;
+}
+
+.highlight-about {
+  color: #ffdd57;
+}
+
+.highlight-skills {
+  color: #8e44ad;
+}
+
+.highlight-resume {
+  color: #3498db;
+}
+
+.highlight-contact {
+  color: #ffffff;
+  font-weight: bold;
+}
+
+/* ============================= */
+/* Loader      */
+/* ============================= */
+.loader-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; /* Ensure it's above everything */
+  transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+  background: rgba(255, 255, 255, 0); /* Fully transparent background */
+}
+
+.loader-container.fade-out {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Spinner Styling */
+.spinner {
+  width: 60px;
+  height: 60px;
+  border: 6px solid rgba(0, 0, 0, 0.2); /* Light border */
+  border-top: 6px solid #3498db; /* Blue color */
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  z-index: 10000; /* Make sure it appears on top */
+}
+
+/* Spinner Animation */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+

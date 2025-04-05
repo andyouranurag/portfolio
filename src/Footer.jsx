@@ -4,7 +4,8 @@ const Footer = () => {
   return (
     <footer className="custom-footer">
       <p>
-        ©All Rights Reserved | <a href="#terms">Terms & Conditions</a>
+        ©My Portfolio | Designed by 
+        <a href="www.anuragdubey.vercel.app" target="_blank" rel="noopener noreferrer"> Anurag Dubey</a>
       </p>
     </footer>
   );

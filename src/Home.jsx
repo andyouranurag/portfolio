@@ -1,18 +1,23 @@
 import React from "react";
-import './App.css';
-
-import Common from "./common";
+import { NavLink } from "react-router-dom";
+import "./App.css";
 
 const Home = () => {
   return (
-    <>
-      <Common
-        name="Hi, Welcome to Anurag Dubey!"
-        description="I am a Data Analyst, Python Developer, and Full Stack Developer with expertise in Python, SQL, Power BI, and the MERN stack. Passionate about data-driven solutions, web development, and cloud technologies."
-        visit="/service"
-        btname="Get Started"
-      />
-    </>
+    <section id="header">
+      <div className="hero-container">
+        <h1 className="hero-text">
+          Welcome to <br />
+          <span className="brand-name">Anurag Dubey</span>
+        </h1>
+        <p className="hero-subtext">
+          I am a Data Analyst, Python Developer, and Full Stack Developer with expertise in Python, SQL, Power BI, and the MERN stack.
+        </p>
+        <NavLink to="/service" className="btn custom-btn">
+          Get Started
+        </NavLink>
+      </div>
+    </section>
   );
 };
 

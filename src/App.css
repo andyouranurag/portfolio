@@ -9,7 +9,8 @@ body, html {
   display: flex;
   flex-direction: column;
   overflow-x: hidden;
-  padding-top: 80px; /* Adjust based on navbar height */
+  padding-top: 70px; /* Or however tall your navbar is */
+
 }
 
 .app-container {
@@ -27,67 +28,110 @@ body, html {
 }
 
 /* ============================= */
-/* common                       */
+/* home                     */
 /* ============================= */
 
-
-/* Background matching other pages */
-#header.common-section {
+#header {
   min-height: 100vh;
   background: linear-gradient(135deg, #3498db, #8e44ad);
-  color: #fff;
-  padding: 3rem 1rem;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 0 1rem;
+  text-align: center;
+  position: relative;
 }
 
-/* Headline styles */
-.main-heading {
-  font-size: 2.5rem;
+.hero-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 90%;
+}
+
+.hero-text {
+  font-size: 2rem;
   font-weight: 700;
+  color: #ffcc00;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+  word-break: break-word;
+}
+
+.brand-name {
+  font-size: 2.4rem;
+  display: block;
+  margin-top: 0.3rem;
+}
+
+.hero-subtext {
+  font-size: 1rem;
+  color: #fff;
+  margin-bottom: 1.5rem;
+}
+
+.custom-btn {
+  background-color: #ffc107;
+  color: black;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+.custom-btn:hover {
+  background-color: #e0a800;
 }
 
 @media (max-width: 768px) {
-  .main-heading {
-    font-size: 1.8rem;
+  .hero-text {
+    font-size: 1.5rem;
+  }
+
+  .brand-name {
+    font-size: 2rem;
+  }
+
+  .hero-subtext {
+    font-size: 0.95rem;
   }
 }
-
-/* Description paragraph */
-.description-text {
-  font-size: 1.1rem;
-  max-width: 700px;
-  margin: 0 auto;
-  line-height: 1.6;
-}
-
-/* Brand highlight */
-.brand-name {
-  color: #ffcc00;
-}
-.description-text{
-  color: white;
-}
-
-/* Button */
-.custom-btn {
-  font-size: 1rem;
-  padding: 0.6rem 1.5rem;
-  border-radius: 30px;
-}
-
 
 /* ============================= */
 /* NAVBAR                        */
 /* ============================= */
 
+/* General Navbar Styling */
 .navbar {
-  background: linear-gradient(135deg, #3498db, #8e44ad);
+  background: linear-gradient(135deg, #ff7eb3, #8e44ad);
   color: white;
-  z-index: 10;
+  z-index: 1000;
+  padding: 12px 20px;
+  transition: all 0.4s ease-in-out;
+  border-radius: 0px 0px 20px 20px; /* Curved bottom edges */
 }
 
+/* Navbar Scrolled Effect */
+.navbar-scrolled {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  background: linear-gradient(135deg, #ff758c, #6a11cb);
+}
+
+/* Brand Logo */
+.navbar-brand {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #ffffff !important;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Navbar Toggler - Custom Hamburger */
 .navbar-toggler {
   border: none;
   outline: none;
@@ -95,36 +139,74 @@ body, html {
 }
 
 .navbar-toggler-icon {
-  background-image: url("data:image/svg+xml,..."); /* optional icon override */
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255,255,255,0.9)' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
 
-.navbar-scrolled {
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
-}
-
-.navbar-brand {
-  font-weight: bold;
-  font-size: 1.3rem;
-  color: #ffffff !important;
-  display: flex;
-  align-items: center;
-}
-
+/* Navbar Links */
 .navbar .nav-link {
   font-weight: 500;
-  padding: 10px 15px;
+  font-size: 1.1rem;
+  padding: 10px 18px;
   color: rgba(255, 255, 255, 0.9) !important;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease-in-out;
+  text-transform: uppercase;
 }
 
+/* Hover Effect */
 .navbar .nav-link:hover {
   color: #ffdd57 !important;
+  transform: scale(1.1);
 }
 
+/* Active Link Styling */
 .navbar .active-link {
   color: #ffcc00 !important;
   font-weight: bold;
   border-bottom: 2px solid #ffcc00;
+}
+
+/* Glassmorphism Effect for Mobile Menu */
+@media (max-width: 991px) {
+  .navbar-collapse {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 15px;
+    text-align: center;
+  }
+
+  .nav-link {
+    display: block;
+    padding: 12px 0;
+  }
+}
+
+/* Animated Underline */
+.navbar .nav-link {
+  position: relative;
+}
+
+.navbar .nav-link::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 0%;
+  height: 2px;
+  background: #ffcc00;
+  transition: all 0.3s ease-in-out;
+  transform: translateX(-50%);
+}
+
+.navbar .nav-link:hover::after,
+.navbar .active-link::after {
+  width: 100%;
+}
+
+/* Floating Effect */
+.navbar:hover {
+  transform: translateY(-2px);
+  box-shadow: 0px 8px 20px rgba(255, 118, 117, 0.3);
 }
 
 
@@ -494,15 +576,19 @@ body, html {
 /* ============================= */
 /* FOOTER                        */
 /* ============================= */
-
 .custom-footer {
-  background: linear-gradient(135deg, #3498db, #8e44ad);
-  color: #fff;
+  background: linear-gradient(135deg, #3498db, #8e44ad); /* Same as Navbar */
+  color: white;
   text-align: center;
   padding: 1rem 0;
   width: 100%;
-  font-size: 0.95rem;
+  font-size: 1rem;
+  font-weight: 500;
   letter-spacing: 0.5px;
+  position: relative;
+  bottom: 0;
+  border-top: 2px solid rgba(255, 255, 255, 0.2); /* Soft border like navbar */
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.15);
 }
 
 .custom-footer p {
@@ -510,14 +596,14 @@ body, html {
 }
 
 .custom-footer a {
-  color: #ffdd57;
+  color: #ffdd57; /* Same yellow as Navbar */
   text-decoration: none;
-  margin-left: 5px;
+  font-weight: bold;
 }
 
 .custom-footer a:hover {
   text-decoration: underline;
-  color: #fff;
+  color: white;
 }
 
 

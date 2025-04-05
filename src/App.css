@@ -22,14 +22,80 @@ body, html {
   flex: 1;
 }
 
+.main-content {
+  padding-top: 70px; /* or margin-top if navbar is fixed */
+}
+
+/* ============================= */
+/* common                       */
+/* ============================= */
+
+
+/* Background matching other pages */
+#header.common-section {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #3498db, #8e44ad);
+  color: #fff;
+  padding: 3rem 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Headline styles */
+.main-heading {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+@media (max-width: 768px) {
+  .main-heading {
+    font-size: 1.8rem;
+  }
+}
+
+/* Description paragraph */
+.description-text {
+  font-size: 1.1rem;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Brand highlight */
+.brand-name {
+  color: #ffcc00;
+}
+.description-text{
+  color: white;
+}
+
+/* Button */
+.custom-btn {
+  font-size: 1rem;
+  padding: 0.6rem 1.5rem;
+  border-radius: 30px;
+}
+
+
 /* ============================= */
 /* NAVBAR                        */
 /* ============================= */
 
 .navbar {
-  transition: all 0.3s ease;
   background: linear-gradient(135deg, #3498db, #8e44ad);
+  color: white;
+  z-index: 10;
+}
+
+.navbar-toggler {
+  border: none;
+  outline: none;
   box-shadow: none;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,..."); /* optional icon override */
 }
 
 .navbar-scrolled {

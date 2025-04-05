@@ -15,8 +15,8 @@ const Contact = () => {
               <p><strong>📧 Email:</strong> andyouranurag@gmail.com</p>
               <p>
                 <strong>💼 LinkedIn:</strong> 
-                <a href="https://www.linkedin.com/in/6a57a7279" target="_blank" rel="noopener noreferrer">
-                  linkedin.com/in/6a57a7279
+                <a href="https://www.linkedin.com/in/andyouranurag" target="_blank" rel="noopener noreferrer">
+                  linkedin.com/in/andyouranurag
                 </a>
               </p>
               <p>

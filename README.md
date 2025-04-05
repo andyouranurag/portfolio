@@ -1,70 +1,154 @@
-# Getting Started with Create React App
+# My Portfolio
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A personal portfolio website built with React.js and Bootstrap, showcasing my skills, projects, and experience.
 
-## Available Scripts
+## Features
+- **Home Page** - Introduction and welcome message.
+- **About Page** - Details about my education and experience.
+- **Skills Page** - List of technologies and tools I specialize in.
+- **Resume Page** - My resume in an accessible format.
+- **Contact Page** - A form to get in touch with me.
+- **Loader** - A loading screen with a smooth transition.
 
-In the project directory, you can run:
+## Installation and Setup
+### Prerequisites
+Ensure you have the following installed:
+- [Node.js](https://nodejs.org/) (v14+ recommended)
+- [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
 
-### `npm start`
+### Clone the Repository
+```bash
+git clone https://github.com/your-username/my-portfolio.git
+cd my-portfolio
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Install Dependencies
+```bash
+npm install
+# OR
+yarn install
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Start the Development Server
+```bash
+npm start
+# OR
+yarn start
+```
+This will start the project at `http://localhost:3000/`.
 
-### `npm test`
+## Project Structure
+```
+my-portfolio/
+│── src/
+│   ├── components/
+│   │   ├── Navbar.jsx
+│   │   ├── Footer.jsx
+│   │   ├── Loader.jsx
+│   ├── pages/
+│   │   ├── Home.jsx
+│   │   ├── About.jsx
+│   │   ├── Skills.jsx
+│   │   ├── Resume.jsx
+│   │   ├── Contact.jsx
+│   ├── App.js
+│   ├── index.js
+│── public/
+│── package.json
+│── README.md
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Adding a Loader to Your Project
+The loader ensures smooth transitions while the content loads.
 
-### `npm run build`
+1. **Create `Loader.jsx` in `src/components/`**
+```jsx
+import React from "react";
+import "./Loader.css";
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+const Loader = ({ fadeOut }) => {
+  return (
+    <div className={`loader-container ${fadeOut ? "fade-out" : ""}`}>
+      <div className="spinner"></div>
+    </div>
+  );
+};
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+export default Loader;
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. **Create `Loader.css`**
+```css
+.loader-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  background: rgba(255, 255, 255, 0); /* Transparent background */
+  transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+}
 
-### `npm run eject`
+.loader-container.fade-out {
+  opacity: 0;
+  visibility: hidden;
+}
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+.spinner {
+  width: 60px;
+  height: 60px;
+  border: 6px solid rgba(0, 0, 0, 0.2);
+  border-top: 6px solid #3498db;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+3. **Use `Loader` in `App.js`**
+```jsx
+import React, { useState, useEffect } from "react";
+import Loader from "./components/Loader";
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+const App = () => {
+  const [loading, setLoading] = useState(true);
 
-## Learn More
+  useEffect(() => {
+    setTimeout(() => setLoading(false), 2000);
+  }, []);
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+  return (
+    <>
+      {loading && <Loader fadeOut={!loading} />}
+      <div className={`app-container ${loading ? "hidden" : ""}`}>
+        {/* Your Components Here */}
+      </div>
+    </>
+  );
+};
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+export default App;
+```
 
-### Code Splitting
+## Deployment
+### Deploy on Vercel
+```bash
+npm install -g vercel
+vercel
+```
+Follow the CLI steps to deploy your portfolio.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Author
+**Anurag Dubey** - [LinkedIn](https://www.linkedin.com/in/andyouranurag)
 
-### Analyzing the Bundle Size
+## License
+This project is licensed under the MIT License.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

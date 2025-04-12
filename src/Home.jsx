@@ -1,19 +1,27 @@
-import React from "react";
+// Home.jsx
+import React, { useEffect } from "react"; // ✅ Add useEffect here
 import { NavLink } from "react-router-dom";
 import "./App.css";
 
 const Home = () => {
+  useEffect(() => {
+    document.body.classList.add("no-scroll");
+    return () => {
+      document.body.classList.remove("no-scroll");
+    };
+  }, []);
+  
   return (
-    <section id="header">
-      <div className="hero-container">
-        <h1 className="hero-text">
+    <section className="home-section">
+      <div className="content">
+        <h1 className="heading">
           Welcome to <br />
-          <span className="brand-name">Anurag Dubey</span>
+          <span className="highlight">Anurag Portfolio</span>
         </h1>
-        <p className="hero-subtext">
+        <p className="subtext">
           I am a Data Analyst, Python Developer, and Full Stack Developer with expertise in Python, SQL, Power BI, and the MERN stack.
         </p>
-        <NavLink to="/service" className="btn custom-btn">
+        <NavLink to="/service" className="start-button">
           Get Started
         </NavLink>
       </div>

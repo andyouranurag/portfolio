@@ -1,7 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./App.css";
 
 const Contact = () => {
+  useEffect(() => {
+    document.body.classList.add("no-scroll");
+    return () => {
+      document.body.classList.remove("no-scroll");
+    };
+  }, []);
+
   return (
     <section className="contact-container">
       <div className="container">
@@ -9,23 +16,23 @@ const Contact = () => {
         <p className="text-center1">Feel free to reach out for collaborations or inquiries!</p>
 
         <div className="contact-info">
-              <h2>Get in Touch</h2>
-              <p><strong>📍 Address:</strong> Mumbai, India</p>
-              <p><strong>📞 Phone:</strong> +91-9152805940</p>
-              <p><strong>📧 Email:</strong> andyouranurag@gmail.com</p>
-              <p>
-                <strong>💼 LinkedIn:</strong> 
-                <a href="https://www.linkedin.com/in/andyouranurag" target="_blank" rel="noopener noreferrer">
-                  linkedin.com/in/andyouranurag
-                </a>
-              </p>
-              <p>
-                <strong>👨‍💻 GitHub:</strong> 
-                <a href="https://github.com/andyouranurag" target="_blank" rel="noopener noreferrer">
-                  github.com/andyouranurag
-                </a>
-              </p>
-            </div>
+          <h2>Get in Touch</h2>
+          <p><strong>📍 Address:</strong> Mumbai, India</p>
+          <p><strong>📞 Phone:</strong> +91-9152805940</p>
+          <p><strong>📧 Email:</strong> andyouranurag@gmail.com</p>
+          <p>
+            <strong>💼 LinkedIn:</strong> 
+            <a href="https://www.linkedin.com/in/andyouranurag" target="_blank" rel="noopener noreferrer">
+              linkedin.com/in/andyouranurag
+            </a>
+          </p>
+          <p>
+            <strong>👨‍💻 GitHub:</strong> 
+            <a href="https://github.com/andyouranurag" target="_blank" rel="noopener noreferrer">
+              github.com/andyouranurag
+            </a>
+          </p>
+        </div>
       </div>
     </section>
   );

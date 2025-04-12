@@ -21,7 +21,7 @@ const Home = () => {
         <p className="subtext">
           I am a Data Analyst, Python Developer, and Full Stack Developer with expertise in Python, SQL, Power BI, and the MERN stack.
         </p>
-        <NavLink to="/service" className="start-button">
+        <NavLink to="/skills" className="start-button">
           Get Started
         </NavLink>
       </div>

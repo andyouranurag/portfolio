@@ -36,11 +36,13 @@ const MyNavbar = () => {
         />
         <Navbar.Collapse id="navbar-nav">
           <Nav className="ml-auto">
-            <Nav.Link as={Link} to="/" className={isActive("/") ? "active-link" : ""} onClick={closeNavbar}>Home</Nav.Link>
-            <Nav.Link as={Link} to="/skills" className={isActive("/skills") ? "active-link" : ""} onClick={closeNavbar}>Skills</Nav.Link>
-            <Nav.Link as={Link} to="/resume" className={isActive("/resume") ? "active-link" : ""} onClick={closeNavbar}>Resume</Nav.Link>
-            <Nav.Link as={Link} to="/about" className={isActive("/about") ? "active-link" : ""} onClick={closeNavbar}>About</Nav.Link>
-            <Nav.Link as={Link} to="/contact" className={isActive("/contact") ? "active-link" : ""} onClick={closeNavbar}>Contact</Nav.Link>
+            <Nav.Link as={Link} to="/" className={isActive("/") ? "active-link" : ""} onClick={closeNavbar}>HOME</Nav.Link>
+            <Nav.Link as={Link} to="/skills" className={isActive("/skills") ? "active-link" : ""} onClick={closeNavbar}>SKILLS</Nav.Link>
+            <Nav.Link as={Link} to="/resume" className={isActive("/resume") ? "active-link" : ""} onClick={closeNavbar}>RESUME</Nav.Link>
+            <Nav.Link as={Link} to="/about" className={isActive("/about") ? "active-link" : ""} onClick={closeNavbar}>ABOUT</Nav.Link>
+            <Nav.Link as={Link} to="/contact" className={isActive("/contact") ? "active-link" : ""} onClick={closeNavbar}>CONTACT</Nav.Link>
+            <Nav.Link as={Link} to="/projects" className={isActive("/projects") ? "active-link" : ""} onClick={closeNavbar}>PROJECTS</Nav.Link>
+
           </Nav>
         </Navbar.Collapse>
       </Container>

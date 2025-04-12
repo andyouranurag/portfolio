@@ -15,6 +15,7 @@ import Resume from "./resume";
 import Footer from "./Footer";
 import Navbar from "./Navbar";
 import Loader from "./Loader";
+import Projects from "./Projects";
 
 import { initGA, logPageView } from "./utils/analytics";
 
@@ -49,6 +50,7 @@ const App = () => {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
+              <Route path="/projects" element={<Projects />} />
               <Route path="/resume" element={<Resume />} />
               <Route path="/skills" element={<Skills />} />
               <Route path="/contact" element={<Contact />} />

@@ -1,0 +1,111 @@
+@keyframes fadeInScale {
+    0% {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  .projects-container {
+    background: linear-gradient(135deg, #2c3e50, #8e44ad);
+    color: white;
+    padding: 100px 20px;
+    text-align: center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .projects-heading {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #ffd700;
+    animation: fadeInScale 1s ease-in-out;
+    margin-bottom: 30px;
+  }
+  
+  .project-search {
+    padding: 10px 15px;
+    border-radius: 10px;
+    border: none;
+    font-size: 1rem;
+    margin-bottom: 30px;
+    width: 300px;
+    max-width: 90%;
+    align-self: center;
+    outline: none;
+  }
+  
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    gap: 30px;
+    animation: fadeInScale 1s ease-in-out;
+  }
+  
+  .project-card {
+    background: rgba(255, 255, 255, 0.07);
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    max-height: 300px;
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  .project-card:hover {
+    max-height: 1000px;
+    overflow-y: auto;
+    transform: scale(1.02);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    background: rgba(255, 255, 255, 0.12);
+  }
+  
+  .project-card h3 {
+    font-size: 1.4rem;
+    color: #ffdd57;
+    margin-bottom: 15px;
+  }
+  
+  .readme-preview {
+    font-size: 0.9rem;
+    color: #f0f0f0;
+    line-height: 1.5;
+    max-height: 150px;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+  }
+  
+  .project-card:hover .readme-preview {
+    max-height: none;
+  }
+  
+  .project-link {
+    margin-top: 15px;
+    display: inline-block;
+    background-color: #ffd700;
+    color: #000;
+    font-weight: bold;
+    padding: 8px 14px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.3s ease;
+  }
+  
+  .project-link:hover {
+    background-color: #fff176;
+  }
+  
+  @media (max-width: 768px) {
+    .projects-container {
+      padding-top: 130px;
+    }
+  }
+  

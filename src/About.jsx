@@ -5,6 +5,23 @@ const About = () => {
   return (
     <>
       <div id="about-header" className="about-section animate__animated animate__fadeIn py-5">
+        {/* Floating Tech Logos */}
+  <div className="floating-logos">
+  <i className="devicon-python-plain logo logo1"></i>
+  <i className="devicon-mysql-plain logo logo2"></i>
+  <i className="devicon-nodejs-plain logo logo3"></i>
+  <i className="devicon-react-original logo logo4"></i>
+  <i className="devicon-html5-plain logo logo5"></i>
+  <i className="devicon-css3-plain logo logo6"></i>
+  <i className="devicon-javascript-plain logo logo7"></i>
+  <i className="devicon-mongodb-plain logo logo8"></i>
+  <i className="devicon-git-plain logo logo9"></i>
+  <i className="devicon-github-original logo logo10"></i>
+  <i className="devicon-vscode-plain logo logo11"></i>
+  <i className="devicon-linux-plain logo logo12"></i>
+  <i className="devicon-docker-plain logo logo13"></i>
+</div>
+
         <div className="container">
           <div className="row align-items-center">
             {/* Left Section - About Details */}
@@ -26,20 +43,43 @@ const About = () => {
                 <span className="highlight-heading">Education</span>
               </h3>
               <ul className="education-list animate__animated animate__fadeInUp animate__delay-1s">
-                <li>
-                  <b className="highlight-degree">BSc in Data Science</b> – <span className="highlight-college">SIES College of Arts, Science and Commerce, Mumbai</span><br />
-                  <span>2022 - 2025</span>
-                </li>
-                <li>
-                  <b className="highlight-degree">HSC (Science)</b> – <span className="highlight-college">Ramniranjan Jhunjhunwala College</span><br />
-                  <span>2020 - 2022</span>
-                </li>
-                <li>
-                  <b className="highlight-degree">SSC</b> – <span className="highlight-college">Dr. Datta Samant Madhyamik Vidyalaya</span><br />
-                  <span>2008 - 2020</span>
-                </li>
-              </ul>
-
+  <li>
+    <b className="highlight-degree">BSc in Data Science</b> – 
+    <a 
+      href="https://siesascs.edu.in" 
+      target="_blank" 
+      rel="noopener noreferrer" 
+      className="highlight-college"
+    >
+      SIES College of Arts, Science and Commerce, Mumbai
+    </a><br />
+    <span>2022 - 2025</span>
+  </li>
+  <li>
+    <b className="highlight-degree">HSC (Science)</b> – 
+    <a 
+      href="https://rjcollege.edu.in/" 
+      target="_blank" 
+      rel="noopener noreferrer" 
+      className="highlight-college"
+    >
+      Ramniranjan Jhunjhunwala College
+    </a><br />
+    <span>2020 - 2022</span>
+  </li>
+  <li>
+    <b className="highlight-degree">SSC</b> – 
+    <a 
+      href="/" 
+      target="_blank" 
+      rel="noopener noreferrer" 
+      className="highlight-college"
+    >
+      Dr. Datta Samant Madhyamik Vidyalaya
+    </a><br />
+    <span>2008 - 2020</span>
+  </li>
+</ul>
               {/* Certification Section */}
               <h3 className="mt-5 animate__animated animate__fadeInUp">
                 <span className="highlight-heading">Certifications</span>

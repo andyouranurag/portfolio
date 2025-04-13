@@ -15,10 +15,10 @@ body, html {
 
 /* Add this to your global CSS */
 
-.no-scroll {
+/* .no-scroll {
   overflow: hidden;
   height: 100vh;
-}
+} */
 
 body {
   overflow-x: hidden;
@@ -61,35 +61,76 @@ body {
 
 /* Home.css */
 
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulseButton {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(241, 196, 15, 0.7);
+  }
+  70% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 10px rgba(241, 196, 15, 0);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(241, 196, 15, 0);
+  }
+}
 
 .home-section {
-  height: 100vh; /* Changed from min-height */
+  height: 100vh;
   overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0 1rem; /* Removed top padding */
+  padding: 0 1rem;
   background: linear-gradient(to bottom right, #3498db, #8e44ad);
   color: #fff;
   text-align: center;
+  animation: fadeInUp 1s ease-in-out;
+  position: relative;
+}
+
+.content {
+  animation: fadeInUp 1.3s ease-in-out;
 }
 
 .heading {
   font-size: 2.5rem;
   line-height: 1.3;
   margin-bottom: 1rem;
+  animation: fadeInUp 1.5s ease forwards;
+  animation-delay: 0.2s;
+  opacity: 0;
 }
 
 .highlight {
   color: #f1c40f;
   font-weight: bold;
   font-size: 2.8rem;
+  display: inline-block;
+  animation: fadeInUp 1.5s ease forwards;
+  animation-delay: 0.4s;
+  opacity: 0;
 }
 
 .subtext {
   font-size: 1.1rem;
   margin-bottom: 2rem;
   line-height: 1.6;
+  animation: fadeInUp 1.5s ease forwards;
+  animation-delay: 0.6s;
+  opacity: 0;
 }
 
 .start-button {
@@ -99,11 +140,17 @@ body {
   color: black;
   text-decoration: none;
   font-weight: 600;
-  transition: background 0.3s ease;
+  display: inline-block;
+  opacity: 0;
+  animation: fadeInUp 1.5s ease forwards, pulseButton 2.5s infinite;
+  animation-delay: 0.8s, 2s; /* First for fadeIn, second for pulse */
+  animation-fill-mode: forwards;
+  transition: background 0.3s ease, transform 0.3s ease;
 }
 
 .start-button:hover {
   background-color: #e1b700;
+  transform: scale(1.05);
 }
 
 /* Mobile Responsive */
@@ -125,8 +172,44 @@ body {
   }
 }
 
+.floating-logos {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
 
+.logo {
+  position: absolute;
+  font-size: 50px;
+  opacity: 0.08;
+  color: #fff;
+  animation: float 12s infinite ease-in-out;
+}
 
+.logo1 { top: 10%; left: 8%; animation-delay: 0s; }
+.logo2 { top: 20%; right: 5%; animation-delay: 1s; }
+.logo3 { top: 35%; left: 15%; animation-delay: 2s; }
+.logo4 { top: 50%; right: 10%; animation-delay: 3s; }
+.logo5 { bottom: 40%; left: 20%; animation-delay: 4s; }
+.logo6 { bottom: 20%; right: 15%; animation-delay: 5s; }
+.logo7 { bottom: 10%; left: 35%; animation-delay: 6s; }
+.logo8 { top: 60%; left: 40%; animation-delay: 7s; }
+.logo9 { bottom: 25%; right: 25%; animation-delay: 8s; }
+.logo10 { top: 15%; left: 60%; animation-delay: 9s; }
+.logo11 { top: 5%; right: 30%; animation-delay: 10s; }
+.logo12 { bottom: 5%; left: 5%; animation-delay: 11s; }
+.logo13 { bottom: 15%; right: 8%; animation-delay: 12s; }
+
+@keyframes float {
+  0% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(15deg); }
+  100% { transform: translateY(0) rotate(0deg); }
+}
 
 /* ============================= */
 /* NAVBAR                        */
@@ -162,6 +245,16 @@ body {
   gap: 8px;
   text-transform: uppercase;
   letter-spacing: 1px;
+  flex-wrap: nowrap; /* Prevent brand & toggler from stacking */
+}
+@media (max-width: 991px) {
+  .navbar .navbar-brand {
+    flex-shrink: 0; /* Prevent brand from shrinking */
+    max-width: 70%; /* Optional: avoid overflow */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
 }
 
 /* Navbar Toggler - Custom Hamburger */
@@ -169,6 +262,7 @@ body {
   border: none;
   outline: none;
   box-shadow: none;
+  margin-left: auto; /* Push toggler to far right */
 }
 
 .navbar-toggler-icon {
@@ -690,39 +784,56 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh;
+  height: 100%;
+  background: linear-gradient(135deg, #ff7eb3, #8e44ad);
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  z-index: 9999; /* Ensure it's above everything */
-  transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
-  background: rgba(255, 255, 255, 0); /* Fully transparent background */
+  z-index: 9999;
+  transition: opacity 0.6s ease;
 }
 
 .loader-container.fade-out {
   opacity: 0;
-  visibility: hidden;
+  pointer-events: none;
 }
 
-/* Spinner Styling */
-.spinner {
-  width: 60px;
-  height: 60px;
-  border: 6px solid rgba(0, 0, 0, 0.2); /* Light border */
-  border-top: 6px solid #3498db; /* Blue color */
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-  z-index: 10000; /* Make sure it appears on top */
+.loader-logo {
+  width: 120px;
+  height: auto;
+  margin-bottom: 20px;
+  animation: pulse 2s infinite;
 }
 
-/* Spinner Animation */
-@keyframes spin {
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+/* Typing Animation */
+.typing-text {
+  font-size: 24px;
+  color: white;
+  font-family: 'Courier New', Courier, monospace;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 4px solid transparent;
+  width: 0;
+  animation: typing 3s steps(30) 1s forwards, blink 0.75s step-end infinite;
+}
+
+@keyframes typing {
   0% {
-    transform: rotate(0deg);
+    width: 0;
   }
   100% {
-    transform: rotate(360deg);
+    width: 18em; /* Adjust based on text length */
   }
 }
 
-
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}

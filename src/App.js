@@ -34,14 +34,12 @@ const App = () => {
 
   useEffect(() => {
     initGA(); // Google Analytics initialization
-    const timer = setTimeout(() => setLoading(false), 2000);
-    return () => clearTimeout(timer);
   }, []);
 
   return (
     <>
       {loading ? (
-        <Loader fadeOut={!loading} />
+        <Loader onFinish={() => setLoading(false)} />
       ) : (
         <>
           <AnalyticsTracker />

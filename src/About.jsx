@@ -44,6 +44,19 @@ const About = () => {
               </h3>
               <ul className="education-list animate__animated animate__fadeInUp animate__delay-1s">
   <li>
+    <b className="highlight-degree">MSc Artificial Intelligence And Data Analytics</b> – 
+    <a 
+      href="https://siesascs.edu.in" 
+      target="_blank" 
+      rel="noopener noreferrer" 
+      className="highlight-college"
+    >
+      Amity University, Noida
+    </a><br />
+    <span>2025 - 2027</span>
+  </li>
+  <li>
+    <li>
     <b className="highlight-degree">BSc in Data Science</b> – 
     <a 
       href="https://siesascs.edu.in" 

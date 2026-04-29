@@ -31,23 +31,23 @@ const experience = [
 const education = [
   {
     title: "Master's Degree",
-    organization: "University Name",
-    date: "2024 - Present",
+    organization: "Amity Universit, Noida",
+    date: "2025 - Present",
     description: "Specializing in Data Science and Machine Learning. Advanced coursework in predictive modeling.",
     icon: <GraduationCap className="w-5 h-5" />,
   },
   {
-    title: "Bachelor of Science (BSc)",
-    organization: "University Name",
-    date: "2019 - 2022",
-    description: "Core computer science principles, database management, and programming foundations.",
+    title: "Bachelor of Science (BSc) Data Science",
+    organization: "SIES College of Arts, Science and Commerce",
+    date: "2022 - 2025",
+    description: "Core computer science principles, Statistics,database management, and programming foundations.",
     icon: <GraduationCap className="w-5 h-5" />,
   },
   {
-    title: "HSC & SSC",
-    organization: "High School",
-    date: "2017 - 2019",
-    description: "Completed secondary and higher secondary education with a focus on science and mathematics.",
+    title: "HSC",
+    organization: "Ramniranjan Jhunjhunwala College",
+    date: "2020 - 2022",
+    description: "Completed secondary and higher secondary education with a focus on PCMB.",
     icon: <GraduationCap className="w-5 h-5" />,
   },
 ];

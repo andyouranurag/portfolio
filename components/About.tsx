@@ -31,7 +31,7 @@ const experience = [
 const education = [
   {
     title: "Master's Degree",
-    organization: "Amity Universit, Noida",
+    organization: "Amity University, Noida",
     date: "2025 - Present",
     description: "Specializing in Data Science and Machine Learning. Advanced coursework in predictive modeling.",
     icon: <GraduationCap className="w-5 h-5" />,

@@ -35,7 +35,7 @@ export default function Hero() {
             <span className="w-2 h-2 rounded-full bg-accent mr-2 animate-pulse"></span>
             Available for new opportunities
           </motion.div>
-          
+
           <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-foreground leading-[1.1]">
             Building <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent-light via-accent to-accent-dark">
@@ -43,7 +43,7 @@ export default function Hero() {
             </span>
             <br /> with AI & Data
           </h1>
-          
+
           <p className="text-lg md:text-xl text-foreground/70 max-w-xl leading-relaxed">
             I'm <span className="font-semibold text-foreground">Anurag Dubey</span> — a passionate builder specializing in bridging the gap between complex data models and beautiful, functional web applications.
           </p>
@@ -73,7 +73,7 @@ export default function Hero() {
             </span>
             <div className="absolute inset-0 bg-gradient-to-r from-accent-light via-accent to-accent-dark opacity-0 group-hover:opacity-10 transition-opacity"></div>
           </a>
-          
+
           <a
             href="#resume"
             className="inline-flex items-center gap-2 px-8 py-3.5 bg-transparent border border-foreground/20 text-foreground rounded-full font-medium hover:bg-foreground/5 transition-all"
@@ -94,13 +94,20 @@ export default function Hero() {
         <div className="relative w-72 h-72 md:w-96 md:h-96">
           {/* Animated Glow behind image */}
           <div className="absolute inset-0 bg-gradient-to-tr from-accent-light via-accent to-accent-dark rounded-full blur-3xl opacity-30 animate-pulse"></div>
-          
+
           {/* Image Container */}
-          <div className="relative w-full h-full rounded-[2rem] overflow-hidden border border-white/10 glass">
-            {/* Fallback pattern since we don't have an image file */}
-            <div className="absolute inset-0 bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center">
-              <span className="text-8xl font-black text-white/5">AD</span>
-            </div>
+          <div className="relative w-full h-full rounded-[2rem] overflow-hidden border border-glass-border glass">
+            {/* Place your image as 'profile.jpg' inside the 'public' folder */}
+            <img
+              src="/profile.png"
+              alt="Anurag Dubey"
+              className="w-full h-full object-cover z-10 relative"
+              onError={(e) => {
+                // Fallback if image is not found
+                e.currentTarget.style.display = 'none';
+                e.currentTarget.parentElement!.innerHTML += '<div class="absolute inset-0 bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center"><span class="text-8xl font-black text-white/5">AD</span></div>';
+              }}
+            />
           </div>
         </div>
       </motion.div>
